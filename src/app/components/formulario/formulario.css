@@ -1,0 +1,16 @@
+
+.titulo{
+  margin-top: 2rem;
+}
+button:hover {
+  border: 1px solid #c6d4d8;
+  background-color: #999999;
+  color: white;
+  padding: 5px 10px;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: white;
+  color: #666666;
+}
