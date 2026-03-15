@@ -2,15 +2,22 @@
     <h1>Usuarios de la web</h1>
     <div class="row g-3">
         @for (usuario of misUsuarios; track usuario.id) {
-            <article class="col-12 col-sm-6 col-lg-3">
-                <app-card 
-                    [imagen]="usuario.image" 
-                    [nombre]="usuario.first_name + ' ' + usuario.last_name" 
-                    [_id]="usuario._id"
-                    (fotoEmitir)="recogerId($event)"
-                    >
-                </app-card>
-            </article>
+        <article class="col-12 col-sm-6 col-lg-3">
+            <app-card [imagen]="usuario.image" [nombre]="usuario.first_name + ' ' + usuario.last_name"
+                [_id]="usuario._id" (fotoEmitir)="recogerId($event)">
+            </app-card>
+        </article>
         }
+    </div>
+    <!-- Añadir paginación -->
+    <div class="paginacion">
+        <button (click)="paginaAnterior()" [disabled]="paginaActual === 1">
+            < </button>
+                <p class="linea"></p>
+                <span class="numero">{{ paginaActual }}</span>
+                <p class="linea"></p>
+                <button class="derecha" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">
+                    >
+                </button>
     </div>
 </section>

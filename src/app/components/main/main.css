@@ -1,0 +1,36 @@
+.paginacion button{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    margin: 1rem 2rem 1rem 1rem;
+}
+.linea{
+    border-bottom: 1px solid black;
+    /*width: 60rem;*/
+    width: 88%;
+    position: absolute;
+    top:2rem;
+    left:4.2rem;
+    
+}
+
+.paginacion{
+    display: flex;
+    position: relative
+}
+.numero{
+    width: 2rem;
+    margin: 0 1rem;
+    background-color: white;
+    position: absolute;
+    top:1.2rem;
+    /*left:34rem;*/
+    left:50%;
+    z-index: 1;
+    text-align: center;
+}
+.derecha{
+    position: absolute;
+    top:0;
+    right:0;
+}
