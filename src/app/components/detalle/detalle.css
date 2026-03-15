@@ -1,0 +1,10 @@
+img{
+    flex-grow: 2;
+    margin: 4rem 2rem;
+}
+.derecha{
+    margin-top: 6rem;
+    margin-left: 4rem;
+    padding-top: 6rem;
+    padding-left: 4rem;
+}
