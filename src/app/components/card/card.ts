@@ -25,7 +25,7 @@ export class Card {
       $event.preventDefault();
 
       Swal.fire({
-        title: '¿Estás seguro de eliminar el usuario?',
+        title: `¿Estás seguro de eliminar el usuario ${this.nombre}?`,
         showDenyButton: false,
         showCancelButton: true,
         confirmButtonText: 'Confirmar',
