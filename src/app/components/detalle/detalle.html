@@ -1,0 +1,30 @@
+<section class="container d-flex">
+    @if(miUsuario){
+    <div class="imagen">
+        <img class="rounded-circle" [src]="miUsuario.image" [alt]="'Imagen de ' + miUsuario.first_name">
+    </div>
+    <div class="derecha border-start border-dark">
+        <div class="contenedor datos pb-5">
+            <h1 class="fs-2">{{miUsuario.first_name}}</h1>
+            <h2 class="fs-2">{{miUsuario.last_name}}</h2>
+            <p class="username">Nombre Usuario: {{miUsuario.username}}</p>
+            <p>Email: {{miUsuario.email}}</p>
+        </div>
+        <div class="botones d-flex">
+            <a class="text-decoration-none text-dark border border-dark rounded p-3" href=""
+                (click)="eliminar($event,miUsuario._id)">Eliminar</a>
+            <a class="text-decoration-none text-dark border border-dark rounded p-3"
+                [routerLink]="['/updateuser',miUsuario._id]">Actualizar</a>
+            <a class="text-decoration-none text-dark border border-dark rounded p-3" [routerLink]="['/home']">Volver a
+                listado</a>
+        </div>
+    </div>
+    }@else{
+        <h2>No hay datos</h2>
+    }
+
+</section>
+
+<ng-template #loading>
+    <p>Cargando usuario...</p>
+</ng-template>
