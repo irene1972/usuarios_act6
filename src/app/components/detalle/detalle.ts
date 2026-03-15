@@ -35,7 +35,7 @@ export class Detalle {
   eliminar($event: any, id: string | undefined) {
     $event.preventDefault();
     Swal.fire({
-      title: '¿Estás seguro de eliminar el usuario?',
+      title: `¿Estás seguro de eliminar el usuario ${this.miUsuario?.first_name}?`,
       showDenyButton: false,
       showCancelButton: true,
       confirmButtonText: 'Confirmar',

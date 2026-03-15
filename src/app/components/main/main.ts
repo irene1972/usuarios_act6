@@ -30,8 +30,6 @@ export class Main {
       this.misUsuarios = data.results;
       this.itemsPorPagina=data.per_page;
       this.totalPaginas=data.total_pages;
-      console.log(this.itemsPorPagina);
-      console.log(this.totalPaginas);
 
       this.route.paramMap.subscribe(params => {
         
