@@ -1,1 +1,10 @@
-<p>main works!</p>
+<section class="container mt-3">
+    <h1>Usuarios de la web</h1>
+    <div class="row g-3">
+        @for (usuario of misUsuarios; track usuario.id) {
+            <article class="col-12 col-sm-6 col-lg-3">
+                <p>{{usuario.first_name}}</p>
+            </article>
+        }
+    </div>
+</section>
