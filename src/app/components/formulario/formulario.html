@@ -1,1 +1,49 @@
-<p>formulario works!</p>
+<section class="container">
+    <h1 class="titulo fs-2">{{titulo}}</h1>
+    <!--{{miForm.get('nombre')?.touched}}-->
+    <form [formGroup]="miForm" (ngSubmit)="cargarDatos()">
+        <div class="form-group p-3">
+            <label class="mb-2" for="nombre">Nombre Usuario</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Introducir nombre" formControlName="nombre">
+            @if (miForm.get('nombre')?.touched && miForm.get('nombre')?.hasError('required')) {
+                <div class="text-danger">
+                    El nombre es obligatorio.
+                </div>
+            }
+        </div>
+        <div class="form-group p-3">
+            <label class="mb-2" for="apellidos">Apellidos Usuario</label>
+            <input type="text" class="form-control" id="apellidos" placeholder="Introducir apellidos" formControlName="apellidos">
+            @if (miForm.get('apellidos')?.touched && miForm.get('apellidos')?.hasError('required')) {
+                <div class="text-danger">
+                    El apellido es obligatorio.
+                </div>
+            }
+        </div>
+        <div class="form-group p-3">
+            <label class="mb-2" for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introducir email" formControlName="email">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email.</small>
+            @if (miForm.get('email')?.touched && miForm.get('email')?.hasError('required')) {
+                <div class="text-danger">
+                    El email es obligatorio.
+                </div>
+            }
+            @if (miForm.get('email')?.touched && miForm.get('email')?.hasError('pattern')) {
+                <div class="text-danger">
+                    Debes introducir un email válido.
+                </div>
+            }
+        </div>
+        <div class="form-group p-3">
+            <label class="mb-2" for="imagen">Imagen Usuario</label>
+            <input type="text" class="form-control" id="imagen" placeholder="Introducir imagen" formControlName="imagen">
+            @if (miForm.get('imagen')?.touched && miForm.get('imagen')?.hasError('required')) {
+                <div class="text-danger">
+                    La imagen es obligatoria.
+                </div>
+            }
+        </div>
+        <button type="submit" class="btn btn-primary m-3 bg-white text-black border border-dark">{{textoBoton}}</button><!-- [disabled]="!miForm.valid" -->
+    </form>
+</section>
