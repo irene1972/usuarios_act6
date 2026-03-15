@@ -12,9 +12,13 @@ export class Users {
   //private baseUrl='https://peticiones.online/api/users';
   private baseUrl=environment.apiUrl;
   httpClient=inject(HttpClient)
-
+/*
   getAllUsers():Observable<IUserResponse>{
     return this.httpClient.get<IUserResponse>(this.baseUrl);
+  }
+*/
+  getAllUsersPerPage(page:number=1):Observable<IUserResponse>{
+    return this.httpClient.get<IUserResponse>(this.baseUrl+'?page='+page);
   }
 
    getUserById(id:string):Observable<IUser>{

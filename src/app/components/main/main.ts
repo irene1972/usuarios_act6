@@ -15,15 +15,23 @@ export class Main {
   misUsuarios: IUser[] | undefined = undefined;
   idUsuario: string = '';
 
+   //añadir paginación
+  datosPaginados: any[] = [];
+
+  paginaActual: number = 1;
+  itemsPorPagina: number = 0;
+  totalPaginas: number = 0;
+
   constructor(private cd: ChangeDetectorRef, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-
-
-    this.usersService.getAllUsers().subscribe((data) => {
+    this.usersService.getAllUsersPerPage().subscribe((data) => {
       this.misUsuarios = data.results;
-      console.log(this.misUsuarios);
+      this.itemsPorPagina=data.per_page;
+      this.totalPaginas=data.total_pages;
+      console.log(this.itemsPorPagina);
+      console.log(this.totalPaginas);
 
       this.route.paramMap.subscribe(params => {
         
@@ -46,6 +54,30 @@ export class Main {
   recogerId($event: string) {
     this.idUsuario = $event;
     this.misUsuarios = this.misUsuarios?.filter(elem => elem._id !== $event);
+  }
+
+  actualizarPaginacion() {
+    const inicio = (this.paginaActual - 1) * this.itemsPorPagina;
+    const fin = inicio + this.itemsPorPagina;
+     this.usersService.getAllUsersPerPage(this.paginaActual).subscribe((data) => {
+      this.misUsuarios = data.results;
+      
+      this.cd.detectChanges();
+    });
+  }
+
+  paginaAnterior() {
+    if (this.paginaActual > 1) {
+      this.paginaActual--;
+      this.actualizarPaginacion();
+    }
+  }
+
+  paginaSiguiente() {
+    if (this.paginaActual < this.totalPaginas) {
+      this.paginaActual++;
+      this.actualizarPaginacion();
+    }
   }
 
 }
