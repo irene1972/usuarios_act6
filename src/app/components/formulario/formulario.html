@@ -43,6 +43,11 @@
                     La imagen es obligatoria.
                 </div>
             }
+            @if (miForm.get('imagen')?.touched && miForm.get('imagen')?.hasError('pattern')) {
+                <div class="text-danger">
+                    Debes introducir una url válida.
+                </div>
+            }
         </div>
         <button type="submit" class="btn btn-primary m-3 bg-white text-black border border-dark">{{textoBoton}}</button><!-- [disabled]="!miForm.valid" -->
     </form>
